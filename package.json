@@ -1,0 +1,28 @@
+{
+  "name": "grunt-bundle-bust",
+  "version": "0.0.0",
+  "description": "Constructs JSON manifests of static resources",
+  "main": "tasks/grunt-bundle-bust.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:MattWhelan/grunt-bundle-bust.git"
+  },
+  "keywords": [
+    "grunt",
+    "bundle",
+    "cachebust"
+  ],
+  "author": "Matt Whelan",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/MattWhelan/grunt-bundle-bust/issues"
+  },
+  "homepage": "https://github.com/MattWhelan/grunt-bundle-bust",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "async": "~0.2.10"
+  }
+}
