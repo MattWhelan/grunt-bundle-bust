@@ -1,5 +1,17 @@
 var hasher = require("./hasher"),
-  async = require("async");
+  async = require("async"),
+  _ = require("lodash");
+
+function composeResults(resultObj, cb){
+  hasher.getObjectHash(resultObj, function(err, totalHash){
+    var composed = {
+      hash: totalHash,
+      files: resultObj
+    };
+
+    cb(null, JSON.stringify(composed, null, 2));
+  });
+}
 
 module.exports = function(grunt){
   grunt.registerMultiTask("bundleBust", "Cachebusting for static resource bundles", function(){
@@ -17,8 +29,10 @@ module.exports = function(grunt){
           next();
         });
       }, function(){
-        grunt.file.write(file.dest, JSON.stringify(result));
-        nextFile();
+        composeResults(result, function(err, resultStr){
+          grunt.file.write(file.dest, resultStr);
+          nextFile();
+        });
       });
     }, done);
   });
