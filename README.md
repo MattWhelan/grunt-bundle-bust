@@ -10,7 +10,9 @@ resource bundles combined using RequireJS or something similar).
 Usage
 ----
 
-    test: {
+bundleBust is a grunt multi-task.  Basic config looks like this.
+
+    bundleBust: {
       options: {
         destProp: "manifest" //The grunt.config property to write the
                              //manifest to.  Optional.
