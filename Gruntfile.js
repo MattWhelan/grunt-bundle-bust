@@ -26,5 +26,5 @@ module.exports = function(grunt){
     }
   });
 
-  grunt.registerTask("default", ['bundleBust', 'test', 'clean']);
+  grunt.registerTask("default", ['bundleBust:test', 'test', 'clean']);
 };
