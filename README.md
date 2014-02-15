@@ -13,12 +13,14 @@ Usage
 bundleBust is a grunt multi-task.  Basic config looks like this.
 
     bundleBust: {
-      options: {
-        destProp: "manifest" //The grunt.config property to write the
-                             //manifest to.  Optional.
-      },
-      src: ["tasks/**"],     //The files to process.
-      dest: "manifest.json", //The destination manifest file.
+      multitaskName: {
+        options: {
+          destProp: "manifest" //The grunt.config property to write the
+                               //manifest to.  Optional.
+        },
+        src: ["tasks/**"],     //The files to process.
+        dest: "manifest.json", //The destination manifest file.
+      }
     }
 
 Output format
