@@ -23,7 +23,8 @@
   "homepage": "https://github.com/MattWhelan/grunt-bundle-bust",
   "devDependencies": {
     "grunt": "~0.4.2",
-    "async": "~0.2.10"
+    "async": "~0.2.10",
+    "grunt-contrib-clean": "~0.5.0"
   },
   "dependencies": {
     "lodash": "~2.4.1"

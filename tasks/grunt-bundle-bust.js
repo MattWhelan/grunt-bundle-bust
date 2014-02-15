@@ -9,13 +9,20 @@ function composeResults(resultObj, cb){
       files: resultObj
     };
 
-    cb(null, JSON.stringify(composed, null, 2));
+    cb(null, composed);
   });
+}
+
+function stringifyResults(resultObj){
+  return JSON.stringify(resultObj, null, 2);
 }
 
 module.exports = function(grunt){
   grunt.registerMultiTask("bundleBust", "Cachebusting for static resource bundles", function(){
-    var done = this.async();
+    var done = this.async(),
+      options = this.options();
+
+    grunt.log.write("Starting bundleBust").ok();
 
     async.each(this.files, function(file, nextFile){
       var sources = file.src.filter(function(fn){
@@ -29,8 +36,14 @@ module.exports = function(grunt){
           next();
         });
       }, function(){
-        composeResults(result, function(err, resultStr){
-          grunt.file.write(file.dest, resultStr);
+        composeResults(result, function(err, resultObj){
+          if(file.dest){
+            grunt.file.write(file.dest, stringifyResults(resultObj));
+          }
+          if(options.destProp){
+            grunt.config.set(options.destProp, resultObj);
+          }
+          grunt.log.write("finished file").ok();
           nextFile();
         });
       });
