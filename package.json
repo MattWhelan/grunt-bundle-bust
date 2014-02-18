@@ -11,7 +11,7 @@
     "url": "git@github.com:MattWhelan/grunt-bundle-bust.git"
   },
   "keywords": [
-    "grunt",
+    "gruntplugin",
     "bundle",
     "cachebust"
   ],
